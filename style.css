@@ -1,0 +1,28 @@
+#ruler_fab {
+    position: fixed; right: 14px; bottom: 140px; z-index: 3000;
+    width: 46px; height: 46px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    background: #111; color: #eee; border: 1px solid #888;
+    font-size: 22px; cursor: pointer; box-shadow: 0 0 10px rgba(0,0,0,.7);
+}
+#ruler_fab.ruler-busy { animation: ruler-pulse 1s infinite; }
+@keyframes ruler-pulse { 50% { box-shadow: 0 0 16px #fff; } }
+
+#ruler_panel {
+    position: fixed; right: 14px; bottom: 196px; z-index: 3000;
+    width: min(300px, 90vw); padding: 12px;
+    background: #0d0d0d; color: #ddd; border: 1px solid #777; border-radius: 10px;
+}
+.ruler-title { text-align: center; letter-spacing: 2px; text-transform: uppercase; font-size: .8em; margin-bottom: 6px; }
+.ruler-svg { width: 100%; height: auto; }
+.ruler-bg { fill: #222; }
+.ruler-fillbar { fill: #e8e8e8; transition: width .8s ease; }
+.ruler-outline * { fill: none; stroke: #999; stroke-width: 2; }
+.ruler-row { display: flex; justify-content: space-between; align-items: center; gap: 6px; margin: 6px 0; }
+#ruler_value { font-size: 1.4em; font-weight: bold; }
+#ruler_tier { font-style: italic; opacity: .8; }
+
+.ruler-flash { position: absolute; bottom: 52px; right: 0; font-weight: bold; white-space: nowrap; animation: ruler-up 1.8s forwards; }
+.ruler-flash.up { color: #7fdc7f; }
+.ruler-flash.down { color: #e06666; }
+@keyframes ruler-up { to { transform: translateY(-30px); opacity: 0; } }
